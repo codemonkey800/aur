@@ -34,6 +34,7 @@ package() {
   cp -r npm-$pkgver $pkgdir/usr/src/npm
 
   cd $pkgdir/usr/src/npm
+  rm -f node_modules/.bin/marked{,-man}
   node $npm install -g --prefix=$pkgdir/usr
 
   # Why 777? :/
