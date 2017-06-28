@@ -20,6 +20,15 @@ A bunch of AUR packages made or forked by me. Those that are forks are located
 in the `contrib` directory. Most of my forks are usually version upgrades or
 build fixes.
 
+## Emoji index
+I've recently started using Emojis in a lot of my commit messages, READMEs, and
+wherever I can on GitHub. Here's what each emoji I use represents. It may be
+subject to change:
+
+- :tada: - Commits that include something so amazing that I have to celebrate :tada:
+- :wrench: - Commits that are relatively small to medium in size
+- :warning: - Commits that introduce configs or code that break things
+
 ## License
 
 MIT License
