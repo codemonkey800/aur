@@ -3,7 +3,7 @@
 # Contributor: Jeremy Asuncion <jeremyasuncion808@gmail.com>
 
 pkgname=yarn
-pkgver=0.27.1
+pkgver=0.27.5
 pkgrel=1
 pkgdesc='Fast, reliable, and secure dependency management'
 arch=(any)
@@ -11,7 +11,7 @@ url='http://yarnpkg.com'
 license=('BSD')
 depends=('nodejs')
 source=("https://github.com/yarnpkg/yarn/releases/download/v$pkgver/yarn-v$pkgver.tar.gz")
-sha512sums=('caf9d43e05fd6de16909f2a7d7e7ff66430e37cafc43ceff2c49d444c889537d05ce3bc6a48749a11e791b8a65f03042ec48368599ece404ac842417dcb1ff13')
+sha512sums=('a21615f3bf4996d6e2dc84b54c3e9ca8a58143941a80771121f6eb6f5dcf8fd655e1c9b9420e7a0ab3a7c26ecd6bdd3790451d76435d7e3d6fbb5ba8ac729dbd')
 
 package() {
   install -dm755  "$pkgdir"/usr/lib/node_modules/yarn
