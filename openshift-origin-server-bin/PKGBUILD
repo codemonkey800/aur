@@ -1,9 +1,9 @@
 # Maintainer: Jeremy Asuncion <jeremyasuncion808@gmail.com>
 
 _hash='7b451fc'
-pkgname='openshift-origin-bin'
+pkgname='openshift-origin-server-bin'
 pkgver='1.5.1'
-pkgrel=2
+pkgrel=3
 pkgdesc="OpenShift Origin is a platform for developing, building, and deploying containerized applications. See https://docs.openshift.org/latest for more on running OpenShift Origin."
 arch=('x86_64')
 url="https://github.com/openshift/origin"
