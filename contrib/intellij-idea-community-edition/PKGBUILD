@@ -1,5 +1,7 @@
 # $Id: PKGBUILD 230539 2017-05-27 08:29:24Z stativ $
 # Maintainer: Lukas Jirkovsky <l.jirkovsky@gmail.com>
+# Contributor: Jeremy Asuncion <jeremyasuncion808@gmail.com>
+
 pkgname=intellij-idea-community-edition
 pkgver=2017.1.5
 _pkgver=171.4694.70
@@ -17,8 +19,8 @@ replaces=('intellij-idea-libs')
 install=idea.install
 source=("http://download.jetbrains.com/idea/ideaIC-$pkgver-no-jdk.tar.gz"
         idea.desktop)
-sha256sums=('67c6303a999237898366f131f4f87d5185d26095fd3da80edda857c7eccce376'
-            'bd37ad47c926941108f624cbe5adbd7fe91d198b15aca63d8a0c0da14c7a76a6')
+sha512sums=('d0132af742c1edb2d7d799385d26739e2a411b49e50d7409c282b919cc6fa25a08322b1880b16ae86e44780710a3054122e05de72525e7b7782cad46674fbb10'
+            '0dae33ea761ba32b911103b7b54462deeae7b3ac54b95c3b177ec3386451269ba2f4bcf92329e13edfa1ce674c68003453591d06e8eab9443a39b1791e9b2444')
 
 package() {
   install -d -m755 "$pkgdir/"usr/share
