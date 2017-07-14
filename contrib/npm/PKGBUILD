@@ -1,9 +1,9 @@
-# $Id: PKGBUILD 228202 2017-05-16 10:24:38Z felixonmars $
+# $Id$
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Jeremy Asuncion <jeremyasuncion808@gmail.com>
 
 pkgname=npm
-pkgver=5.1.0
+pkgver=5.3.0
 pkgrel=1
 pkgdesc='A package manager for javascript'
 arch=('any')
@@ -15,7 +15,7 @@ makedepends=('procps-ng' 'marked-man')
 optdepends=('python2: for node-gyp')
 options=('!emptydirs')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/npm/npm/archive/v$pkgver.tar.gz")
-sha512sums=('c0412646dd09ed75932d3c530a0ba22ad5b8162449aa5c5dcd7882063480970d9473276b841f24e6918e2e47912f3e4542c08a8dc8e342cf45bc21378496885d')
+sha512sums=('a48f1becc8bf75142aadc1aea55f9dbb686ebdd764feec06bdcf305575662c9bf2300d3e24bab129738ec8102eb92a94d44cd55997b79c655f435bccc7deda56')
 
 prepare() {
   cd npm-$pkgver
@@ -28,27 +28,23 @@ build() {
 }
 
 package() {
-  local npm="$srcdir/npm-$pkgver/bin/npm-cli.js"
-
-  mkdir -p $pkgdir/usr/src
-  cp -r npm-$pkgver $pkgdir/usr/src/npm
-
-  cd $pkgdir/usr/src/npm
-  rm -f node_modules/.bin/marked{,-man}
-  node $npm install -g --prefix=$pkgdir/usr
-
-  # Why 777? :/
-  chmod -R u=rwX,go=rX $pkgdir
+  cd npm-$pkgver
+  make NPMOPTS="--prefix=\"$pkgdir/usr\"" install
 
   # Provide node-gyp executable
-  cp bin/node-gyp-bin/node-gyp $pkgdir/usr/bin/node-gyp
+  cp "$pkgdir"/usr/lib/node_modules/npm/bin/node-gyp-bin/node-gyp "$pkgdir"/usr/bin/node-gyp
   sed -i 's|"`dirname "$0"`/../../|"`dirname "$0"`/../lib/node_modules/npm/|' "$pkgdir"/usr/bin/node-gyp
 
+  # Why 777? :/
+  chmod -R u=rwX,go=rX "$pkgdir"
+
   # Experimental dedup
-  cd node_modules
-  for dep in semver; do
-    rm -r $dep
-    node $npm link $dep
+  for _d in "$pkgdir"/usr/lib/node_modules/$pkgname/node_modules; do
+    cd "$_d"
+    for dep in semver; do
+      rm -r $dep;
+      node "$srcdir"/npm-$pkgver/bin/npm-cli.js link $dep;
+    done
   done
 
   install -Dm644 "$srcdir"/npm-$pkgver/LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
