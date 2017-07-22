@@ -20,6 +20,11 @@ A bunch of AUR packages made or forked by me. Those that are forks are located
 in the `contrib` directory. Most of my forks are usually version upgrades or
 build fixes.
 
+All of these AUR packages are wrappers over the actual software. If I ever
+write software that will end up in AUR, I'll store the `PKGBUILD` files there.
+An example would be
+[python-license](https://github.com/codemonkey800/python-license).
+
 ## Emoji index
 I've recently started using Emojis in a lot of my commit messages, READMEs, and
 wherever I can on GitHub. Here's what each emoji I use represents. It may be
