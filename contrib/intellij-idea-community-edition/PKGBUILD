@@ -3,8 +3,8 @@
 # Contributor: Jeremy Asuncion <jeremyasuncion808@gmail.com>
 
 pkgname=intellij-idea-community-edition
-pkgver=2017.2
-_pkgver=172.3317.76
+pkgver=2017.2.2
+_pkgver=172.3757.52
 pkgrel=1
 epoch=2
 pkgdesc="IDE for Java, Groovy and other programming languages with advanced refactoring features"
@@ -20,8 +20,8 @@ replaces=('intellij-idea-libs')
 install=idea.install
 source=("http://download.jetbrains.com/idea/ideaIC-$pkgver-no-jdk.tar.gz"
         idea.desktop)
-sha512sums=('25371f5b131d16ce40a045fd337055173e79a70d0fd06ce6a88ca9f707d7bfc1a33fa8c06bbe2866d05f41a0922656967053efcbbfbd0c07b67ce7e5b90f6c61'
-            '0dae33ea761ba32b911103b7b54462deeae7b3ac54b95c3b177ec3386451269ba2f4bcf92329e13edfa1ce674c68003453591d06e8eab9443a39b1791e9b2444')
+sha256sums=('2c85c2b021180fb6b9fa305a04169b0124962c70fabfca818051b7f81525da71'
+            'bd37ad47c926941108f624cbe5adbd7fe91d198b15aca63d8a0c0da14c7a76a6')
 
 package() {
   install -d -m755 "$pkgdir/"usr/share
